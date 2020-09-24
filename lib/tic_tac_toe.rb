@@ -84,4 +84,47 @@ class TicTacToe
     return false
   end
 
+  def full?
+    if @board.all?{|index| index == "X" || index == "O"}
+      return true
+    elsif @board.any?{|index| index == "X" || index == "O"}
+      return false
+    else return false
+    end
+  end
+
+  def draw?
+    if won?== false && full?== true
+      return true
+    else
+     return false
+    end
+  end
+
+  def over?
+    if won? != false or draw? == true or full? == true
+      return true
+    else
+      return false
+    end
+  end
+
+  def winner
+    if won? != false
+
+      xcount = 0
+      ocount = 0
+
+      xcount += @board.select{|index| index == "X"}.length()
+      ocount += @board.select{|index| index == "O"}.length()
+
+      if xcount > ocount
+        return "X"
+      elsif ocount > xcount
+        return "O"
+      end
+    end
+  end
+
+
 end
