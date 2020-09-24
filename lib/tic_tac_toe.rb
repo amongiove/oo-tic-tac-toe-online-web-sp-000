@@ -42,4 +42,14 @@ class TicTacToe
     end
   end
 
+  def turn_count
+    count = 0
+    @board.each do |index|
+      if index != "" && index != " " && index != nil
+        count += 1
+      end
+    end
+    return count
+  end
+
 end
