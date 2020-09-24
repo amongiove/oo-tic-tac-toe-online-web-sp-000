@@ -52,4 +52,36 @@ class TicTacToe
     return count
   end
 
+  def current_player
+    if turn_count.odd? == true
+      return "O" # e.g 1 - x goes first
+    elsif turn_count.even? == true
+      return "X" #eg 2 - O goes second
+    end
+  end
+
+  def won?
+    WIN_COMBINATIONS.each do |win_combination|
+
+      win_index_1 = win_combination[0]
+      win_index_2 = win_combination[1]
+      win_index_3 = win_combination[2]
+
+      position_1 = board[win_index_1]
+      position_2 = board[win_index_2]
+      position_3 = board[win_index_3]
+
+      if @board.any?{|index| index == "X" || index == "O"}
+        if position_1 == "X" && position_2 == "X" && position_3 == "X"
+          return win_combination
+        elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+          return win_combination
+        end
+      else
+       return false
+      end
+    end
+    return false
+  end
+
 end
