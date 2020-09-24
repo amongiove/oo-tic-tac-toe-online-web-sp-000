@@ -120,7 +120,7 @@ class TicTacToe
 
       if xcount > ocount
         return "X"
-      elsif ocount > xcount
+      elsif ocount => xcount
         return "O"
       end
     end
